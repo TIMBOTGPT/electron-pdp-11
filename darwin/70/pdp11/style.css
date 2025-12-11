@@ -63,13 +63,51 @@ body {
 }
 div#console {
 	z-index: 3;
-	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: absolute;
-	height: 40px;
+	height: 32px;
 	width: 40px;
-	bottom: 0;
+	bottom: 10px;
 	right: 16px;
-	cursor: ns-resize;
+	cursor: pointer;
+	background: linear-gradient(180deg, #3a3632 0%, #2a2622 100%);
+	border: 2px solid #5a5652;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+div#console::before {
+	content: '';
+	width: 28px;
+	height: 20px;
+	background: radial-gradient(ellipse at center, #0a2010 0%, #051008 100%);
+	border: 2px solid #1a1a18;
+	border-radius: 3px;
+	box-shadow: inset 0 0 10px rgba(0,255,0,0.15), inset 0 0 3px rgba(0,255,0,0.3);
+	position: relative;
+}
+div#console::after {
+	content: '>_';
+	position: absolute;
+	font-family: 'Courier New', monospace;
+	font-size: 10px;
+	font-weight: bold;
+	color: #0f0;
+	text-shadow: 0 0 4px #0f0, 0 0 8px #0f0;
+	animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+	50% { opacity: 0.7; }
+}
+div#console:hover::before {
+	box-shadow: inset 0 0 15px rgba(0,255,0,0.25), inset 0 0 5px rgba(0,255,0,0.4);
+}
+div#console:hover::after {
+	text-shadow: 0 0 6px #0f0, 0 0 12px #0f0;
+}
+div#console:active {
+	transform: scale(0.95);
 }
 /* CSS to add draggable Windows 10 Titlebar and windows controls (disabled on darwin platform [preload.js]) */
 #titlebar {
