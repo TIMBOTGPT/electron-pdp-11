@@ -82,10 +82,10 @@ const createWindow = () => {
 	});
 	// Toggle console tray
 	ipcMain.on('console', () => {
-		if (mainWindow.getBounds().height === 868) {
+		if (mainWindow.getBounds().height === 1000) {
 			mainWindow.setSize(1088,448,true);
 		} else {
-			mainWindow.setSize(1088,868,true);
+			mainWindow.setSize(1088,1000,true);
 		}
 	});
 
